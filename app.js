@@ -5,7 +5,7 @@ var app = express();
 
 AWS.config.update({
 	region: process.env.DYNAMO_REGION,
-	endpoint: process.env.DYNAMO_ENDPOINT
+	//endpoint: process.env.DYNAMO_ENDPOINT
 });
 
 app.get('/', function (req, res) {
@@ -22,7 +22,8 @@ app.get('/user/:userId', function(req, res) {
 	var params = {
 		TableName: "users",
 		Key: {
-			"userId": req.params["userId"]
+			"userId": req.params["userId"],
+			"promo": req.params['promo']
 		}
 	}
 	docClient.get(params, function(err,data) {
