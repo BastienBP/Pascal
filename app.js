@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/students', function (req, res) {
-	
+
 
 });
 
@@ -22,7 +22,7 @@ app.get('/user/:userId', function(req, res) {
 	var params = {
 		TableName: "users",
 		Key: {
-			"userId"; req.params["userId"];
+			"userId": req.params["userId"];
 		}
 	}
 	docClient.get(params, function(err,data) {
